@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: blogdb_test
+    ports:
+      - "55432:5432"
+    volumes:
+      - db_test_data:/var/lib/postgresql/data
+
+  liquibase:
+    image: liquibase/liquibase:4.28
+    depends_on:
+      - db
+    volumes:
+      - ./liquibase:/liquibase/changelog
+    working_dir: /liquibase
+    command:
+      [
+        "sh", "-c",
+        "liquibase --url=jdbc:postgresql://db:5432/blogdb_test --changeLogFile=changelog/changelog.xml --username=postgres --password=password update && tail -f /dev/null"
+      ]
+    environment:
+      - LIQUIBASE_LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD-SHELL", "sleep 10s"]
+      interval: 1s
+      timeout: 11s
+      retries: 5
+
+  test:
+    build: .
+    environment:
+      PGUSER: postgres
+      PGPASSWORD: password
+      PGHOST: db
+      PGDATABASE: blogdb_test
+      PGPORT: 5432
+    depends_on:
+      liquibase:
+        condition: service_healthy
+    command: ["npm", "test"]
+
+volumes:
+  db_test_data:
+
