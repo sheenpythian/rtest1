@@ -19,7 +19,7 @@ EXPOSE 3000
 # Set environment variables for Sequelize/Postgres (override as needed)
 ENV PGUSER=postgres \
     PGPASSWORD=password \
-    PGHOST=host.docker.internal \
+    PGHOST=db \
     PGDATABASE=blogdb \
     PGPORT=5432
 
