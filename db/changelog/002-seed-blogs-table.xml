@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2-seed-blogs-table" author="copilot">
+        <insert tableName="blogs">
+            <column name="id" value="b1a1a111-1111-1111-1111-111111111111"/>
+            <column name="blog_title" value="First Blog Post"/>
+            <column name="blog_body" value="This is the body of the first blog post."/>
+            <column name="blog_date" valueDate="2024-06-01"/>
+            <column name="blog_author" value="Alice"/>
+            <column name="blog_category" value="Tech"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b2a2a222-2222-2222-2222-222222222222"/>
+            <column name="blog_title" value="Second Blog Post"/>
+            <column name="blog_body" value="This is the body of the second blog post."/>
+            <column name="blog_date" valueDate="2024-06-02"/>
+            <column name="blog_author" value="Bob"/>
+            <column name="blog_category" value="Lifestyle"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b3a3a333-3333-3333-3333-333333333333"/>
+            <column name="blog_title" value="Third Blog Post"/>
+            <column name="blog_body" value="This is the body of the third blog post."/>
+            <column name="blog_date" valueDate="2024-06-03"/>
+            <column name="blog_author" value="Charlie"/>
+            <column name="blog_category" value="Travel"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b4a4a444-4444-4444-4444-444444444444"/>
+            <column name="blog_title" value="Fourth Blog Post"/>
+            <column name="blog_body" value="This is the body of the fourth blog post."/>
+            <column name="blog_date" valueDate="2024-06-04"/>
+            <column name="blog_author" value="Diana"/>
+            <column name="blog_category" value="Food"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b5a5a555-5555-5555-5555-555555555555"/>
+            <column name="blog_title" value="Fifth Blog Post"/>
+            <column name="blog_body" value="This is the body of the fifth blog post."/>
+            <column name="blog_date" valueDate="2024-06-05"/>
+            <column name="blog_author" value="Eve"/>
+            <column name="blog_category" value="Tech"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b6a6a666-6666-6666-6666-666666666666"/>
+            <column name="blog_title" value="Sixth Blog Post"/>
+            <column name="blog_body" value="This is the body of the sixth blog post."/>
+            <column name="blog_date" valueDate="2024-06-06"/>
+            <column name="blog_author" value="Frank"/>
+            <column name="blog_category" value="Lifestyle"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b7a7a777-7777-7777-7777-777777777777"/>
+            <column name="blog_title" value="Seventh Blog Post"/>
+            <column name="blog_body" value="This is the body of the seventh blog post."/>
+            <column name="blog_date" valueDate="2024-06-07"/>
+            <column name="blog_author" value="Grace"/>
+            <column name="blog_category" value="Travel"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b8a8a888-8888-8888-8888-888888888888"/>
+            <column name="blog_title" value="Eighth Blog Post"/>
+            <column name="blog_body" value="This is the body of the eighth blog post."/>
+            <column name="blog_date" valueDate="2024-06-08"/>
+            <column name="blog_author" value="Hank"/>
+            <column name="blog_category" value="Food"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b9a9a999-9999-9999-9999-999999999999"/>
+            <column name="blog_title" value="Ninth Blog Post"/>
+            <column name="blog_body" value="This is the body of the ninth blog post."/>
+            <column name="blog_date" valueDate="2024-06-09"/>
+            <column name="blog_author" value="Ivy"/>
+            <column name="blog_category" value="Tech"/>
+        </insert>
+        <insert tableName="blogs">
+            <column name="id" value="b0a0a000-0000-0000-0000-000000000000"/>
+            <column name="blog_title" value="Tenth Blog Post"/>
+            <column name="blog_body" value="This is the body of the tenth blog post."/>
+            <column name="blog_date" valueDate="2024-06-10"/>
+            <column name="blog_author" value="Jack"/>
+            <column name="blog_category" value="Lifestyle"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
