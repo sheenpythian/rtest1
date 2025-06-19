@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: blogdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  liquibase:
+    image: liquibase/liquibase:4.28
+    depends_on:
+      - db
+    volumes:
+      - ./db/changelog:/liquibase/changelog
+    command: [
+      "--url=jdbc:postgresql://db:5432/blogdb",
+      "--changeLogFile=changelog/db.changelog-master.xml",
+      "--username=postgres",
+      "--password=password",
+      "update"
+    ]
+  app:
+    build: .
+    depends_on:
+      - db
+      - liquibase
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/blogdb
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+volumes:
+  pgdata:
